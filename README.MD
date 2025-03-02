@@ -79,6 +79,8 @@ This system is designed for parallel (multi-threaded) processing of hamburger sa
 - **global_results (List of Hash Tables):**  
   Stores the local counts of each hamburger chain from every file processed.
 
+![Data Structures Diagram](DataStructuresDiagram.jpg)
+
 ### Threads
 - **Worker Threads:**  
   - Dequeue a file path from `task_queue`.
@@ -113,9 +115,11 @@ This system is designed for parallel (multi-threaded) processing of hamburger sa
 - The main program merges all local hash tables in `global_results` into a single dictionary.
 - It identifies the top-selling hamburger chain and prints the result.
 
+![Sequence Diagram](SequenceDiagram.jpg)
+
 ---
 
-## 5. System Components
+## System Components
 
 - **main.py File:**  
   - Holds the global configurations, main functions, and the main entry point.
@@ -129,9 +133,11 @@ This system is designed for parallel (multi-threaded) processing of hamburger sa
   - Prevents files from remaining indefinitely in `in_progress` if a worker hangs or crashes.
   - Moves stuck files back to `pending` status in the queue.
 
+![Object diagram](Objectdiagram.jpg)
+
 ---
 
-## 7. Expected Outcomes
+## Expected Outcomes
 
 - The system outputs a single winning chain with the highest total sales (ties are broken arbitrarily).
 - Parallel processing reduces overall runtime compared to a single-threaded approach.
@@ -139,7 +145,7 @@ This system is designed for parallel (multi-threaded) processing of hamburger sa
 
 ---
 
-## 8. Future Extensions & Optimizations
+## Future Extensions & Optimizations
 
 - Use more advanced storage formats (e.g., Parquet) for large-scale data.
 - Employ distributed processing frameworks (Spark, Dask) for even greater scalability.
@@ -150,6 +156,5 @@ This system is designed for parallel (multi-threaded) processing of hamburger sa
 
 This specification provides an overview of the system architecture, the data structures involved, and the processes that ensure reliable, concurrent, and efficient handling of hamburger sales data.
 
-![Object diagram](Objectdiagram.jpg)
-![Data Structures Diagram](DataStructuresDiagram.jpg)
-![Sequence Diagram](SequenceDiagram.jpg)
+
+
